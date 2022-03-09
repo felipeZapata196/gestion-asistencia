@@ -1,0 +1,61 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance system with PHP - By Parzibyte</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        body {
+            padding-top: 80px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+<main class="container-fluid"><div class="row" id="app">
+    <div class="col-12">
+        <h1 class="text-center">Pasar Lista</h1>
+    </div>
+
+    <div class="col-12">
+        <div class="form-inline mb-2">
+            <label for="date">Date: &nbsp;</label>
+            <input @change="refreshEmployeesList" v-model="date" name="date" id="date" type="date" class="form-control">
+            <button @click="save" class="btn btn-success ml-2">Save</button>
+        </div>
+    </div>
+    <div class="col-12">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nombre Alumnno
+                        </th>
+                        <th>
+                            Come aquí?
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="employee in employees">
+                        <td>{{employee.name}}</td>
+                        <td>
+                            <select v-model="employee.status" class="form-control">
+                                <option disabled value="unset">--Select--</option>
+                                <option value="presence">Presence</option>
+                                <option value="absence">Absence</option>
+                            </select>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
